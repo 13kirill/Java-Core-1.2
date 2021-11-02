@@ -4,12 +4,11 @@ public class Main {
         OnTaskDoneListener listener = System.out::println;
         OnTaskErrorListener badListener = System.out::println;
 
-        Worker worker = new Worker(listener);
-        Worker badWorker = new Worker(badListener);
+        Worker worker = new Worker(listener, badListener);
 
         worker.start();
         System.out.println();
         Thread.sleep(3000);
-        badWorker.badStart();
+        worker.badStart();
     }
 }
